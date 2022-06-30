@@ -9,14 +9,15 @@ resource "random_pet" "name_uid" {
 }
 
 locals {
-    vpc_id = "vpc-07c169fb946404dbe"
-    subnet_ids = [
-        "subnet-04248d77575a81093",
-        "subnet-05cfcfed3b91f9791",
-        "subnet-02f147ff731f8ac89"
-    ]
-    region = "us-east-1"
+  vpc_id = "vpc-07c169fb946404dbe"
+  subnet_ids = [
+    "subnet-04248d77575a81093",
+    "subnet-05cfcfed3b91f9791",
+    "subnet-02f147ff731f8ac89"
+  ]
+  region = "us-east-1"
 }
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 18.0"
@@ -24,7 +25,7 @@ module "eks" {
   cluster_name    = "demo-cluster-${random_pet.name_uid.id}"
   cluster_version = "1.22"
 
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access = true
 
   cluster_addons = {
     coredns = {
