@@ -12,9 +12,9 @@ provider "helm" {
 }
 
 resource "helm_release" "nginx" {
-  name       = "ingress-nginx"
-  repository = "https://helm.nginx.com/stable"
-  chart      = "nginx-ingress"
-  namespace  = "nginx-ingress"
+  name             = "ingress-nginx"
+  repository       = "https://helm.nginx.com/stable"
+  chart            = "nginx-ingress"
+  namespace        = "nginx-ingress"
   create_namespace = true
 }
