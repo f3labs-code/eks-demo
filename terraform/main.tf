@@ -46,14 +46,13 @@ module "eks" {
   }
 
   eks_managed_node_groups = {
-    blue = {}
     green = {
       min_size     = 1
       max_size     = 10
       desired_size = 1
 
       instance_types = ["m6i.large"]
-      capacity_type  = "SPOT"
+      capacity_type  = "ON_DEMAND"
     }
   }
 
